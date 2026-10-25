@@ -1,0 +1,404 @@
+:root {
+  --header: #131921;
+  --nav: #232f3e;
+  --footer: #232f3e;
+  --bg: #e3e6e6;
+  --text: #0f1111;
+  --muted: #565959;
+  --link: #007185;
+  --link-hover: #c7511f;
+  --orange: #ff9900;
+  --search-button: #febd69;
+  --yellow: #ffd814;
+  --deal: #cc0c39;
+  --success: #067d62;
+  --in-stock: #007600;
+  --danger: #b12704;
+  --border: #d5d9d9;
+  --star: #ffa41c;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Amazon Ember', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.25;
+}
+
+:focus-visible {
+  outline: 2px solid #007185;
+  outline-offset: 2px;
+}
+
+.main {
+  min-height: 60vh;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link);
+  font-size: inherit;
+  text-align: left;
+}
+
+.link-button:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* Botões */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--text);
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  transition: background-color 0.15s;
+}
+
+.btn:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px #c8f3fa, inset 0 0 0 1px #007185;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--yellow {
+  background: var(--yellow);
+  border-color: #fcd200;
+}
+
+.btn--yellow:hover:not(:disabled) {
+  background: #f7ca00;
+}
+
+.btn--orange {
+  background: #ffa41c;
+  border-color: #ff8f00;
+}
+
+.btn--orange:hover:not(:disabled) {
+  background: #fa8900;
+}
+
+.btn--white {
+  background: #fff;
+  border-color: var(--border);
+}
+
+.btn--white:hover:not(:disabled) {
+  background: #f7fafa;
+}
+
+.btn--sm {
+  padding: 5px 12px;
+  font-size: 12px;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--round {
+  border-radius: 100px;
+}
+
+/* Selos, estrelas e preço */
+.badge {
+  display: inline-block;
+  width: fit-content;
+  padding: 3px 6px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.badge--deal {
+  background: var(--deal);
+}
+
+.badge--bestseller {
+  background: #e47911;
+}
+
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1;
+}
+
+.stars__value {
+  font-size: 13px;
+}
+
+.stars__track {
+  position: relative;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #d5d9d9;
+}
+
+.stars__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--star);
+}
+
+.stars__count {
+  font-size: 13px;
+  color: var(--link);
+}
+
+.price {
+  display: inline-flex;
+  align-items: flex-start;
+  line-height: 1;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.price__symbol,
+.price__cents {
+  padding-top: 0.12em;
+  font-size: 0.48em;
+}
+
+.price__symbol {
+  margin-right: 2px;
+}
+
+.price--sm {
+  font-size: 19px;
+}
+
+.price--md {
+  font-size: 26px;
+}
+
+.price--lg {
+  font-size: 30px;
+}
+
+/* Estados de carregamento */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ddd;
+  border-top-color: var(--orange);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.page-center {
+  display: grid;
+  min-height: 50vh;
+  place-items: center;
+  background: #fff;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #ececec 25%, #f6f6f6 37%, #ececec 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+.skeleton--card {
+  height: 420px;
+  border-radius: 4px;
+}
+
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 40px 20px;
+  text-align: center;
+  background: #fff;
+}
+
+.error-state p {
+  margin: 0 0 8px;
+}
+
+.panel {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #fff;
+}
+
+/* Formulários */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.field > span {
+  font-weight: 700;
+}
+
+.field input {
+  height: 32px;
+  padding: 3px 8px;
+  border: 1px solid #888c8c;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(15, 17, 17, 0.15);
+  font-size: 14px;
+  outline: 0;
+}
+
+.field input:focus {
+  border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.5);
+}
+
+.field.has-error input {
+  border-color: #d00;
+  box-shadow: 0 0 0 3px rgba(221, 0, 0, 0.12);
+}
+
+.field__error {
+  font-size: 12px;
+  color: #c40000;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.breadcrumb a {
+  color: var(--muted);
+}
+
+.breadcrumb__current {
+  color: #c45500;
+}
+
+.alert {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.alert--success {
+  border: 1px solid var(--success);
+  box-shadow: inset 0 0 0 4px #e6f5f1;
+  color: var(--success);
+}
+
+.alert h2 {
+  font-size: 17px;
+}
+
+.alert p {
+  margin: 4px 0 0;
+  color: var(--text);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
